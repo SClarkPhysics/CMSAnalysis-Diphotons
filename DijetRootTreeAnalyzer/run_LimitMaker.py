@@ -55,8 +55,8 @@ for sig, sdir in gen_signals.items():
   os.system("combine output/dijet_combine_gg_{}_lumi-{}_{}_diphoton_dijet.txt -M AsymptoticLimits -n _{}_{}".format(sig, LUMI[year]/10, year, year,sig))
   os.system("mv higgsCombine_{}_{}.AsymptoticLimits.mH120.root combineOutput/{}/{}.root".format(year,sig,year,sig))
 
-print("Hey STEVEN YOURE NOT DOING IT ALL")
-exit()
+#print("Hey STEVEN YOURE NOT DOING IT ALL")
+#exit()
 
 ct = 0
 for sig, sdir in int_signals.items():

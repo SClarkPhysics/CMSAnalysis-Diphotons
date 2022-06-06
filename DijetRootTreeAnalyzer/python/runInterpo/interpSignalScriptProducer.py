@@ -9,7 +9,7 @@ xstep = 10
 alphamin, alphamax = 0.005, 0.03
 nalphas = 25+1
 alphalist = np.linspace(alphamin, alphamax, nalphas)
-#alphalist = np.array([0.026])
+#alphalist = np.array([0.028])
 #alphalist = np.array([0.01,0.02,0.026])
 
 xlist = [xx for xx in range(xmin, xmax+xstep, xstep)]

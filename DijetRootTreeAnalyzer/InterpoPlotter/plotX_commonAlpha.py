@@ -13,9 +13,9 @@ sys.path.append("../.")
 def makePlot(year, plot_alpha):
   out_dir = "../inputs/Interpolations/{}/".format(year)
 
-  tFind = "nom.root"
+  #tFind = "nom.root"
   #tFind = "nom_puUp.root"
-  #tFind = "nom_puDown.root"
+  tFind = "nom_puDown.root"
   #tFind = "scale_up.root"
   #tFind = "scale_down.root"
 
@@ -47,7 +47,6 @@ def makePlot(year, plot_alpha):
         xmass = int(xamass[1 : xamass.find("phi")])
         phimass = float(xamass[xamass.find("phi")+3 :].replace("p",".") )
         alpha = phimass / xmass
-        if xmass < 300 or xmass > 2000: continue
         if xmass % 50 != 0: continue
         if(round(alpha,3) != plot_alpha): continue
         if(xmass in [200, 300, 400, 500, 600, 750, 1000, 1500, 2000]):
@@ -101,7 +100,7 @@ def makePlot(year, plot_alpha):
     #if ct >= 1: break
     known = False
   
-    if(this_x in [200,300,400,500,600,750,1000,1500,2000]):
+    if(this_x in [200,300,400,500,600,750,1000,1500,2000] and this_alpha in [0.005, 0.01, 0.015, 0.02, 0.025, 0.03]):
       known=True
 
     tf = ROOT.TFile(F, "read")
@@ -142,7 +141,7 @@ def makePlot(year, plot_alpha):
 
     if(ct==0): hist.Draw("hist")
     else: hist.Draw("histsame")
-    linelist[str(this_x)].Draw("same")
+    #linelist[str(this_x)].Draw("same")
     ct+=1
 
   legend.SetBorderSize(0)

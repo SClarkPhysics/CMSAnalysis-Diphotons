@@ -3,7 +3,8 @@ import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-years = ["2016","2017","2018"]
+#years = ["2016","2017","2018"]
+years = ["RunII"]
 
 alphalist = []
 for year in years:

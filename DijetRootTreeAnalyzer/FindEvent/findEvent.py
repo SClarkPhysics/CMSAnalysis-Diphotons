@@ -5,10 +5,11 @@ import sys
 #want_run = '274161'
 #want_lumi = '295'
 #want_id = '511801563'
-year = sys.argv[1]
-want_run = sys.argv[2]
-want_lumi = sys.argv[3]
-want_id = sys.argv[4]
+year = sys.argv[1].replace(",","")
+eoff = sys.argv[2]
+want_run = sys.argv[3].replace(",","")
+want_lumi = sys.argv[4].replace(",","")
+want_id = sys.argv[5].replace(",","")
 
 if(year == "2016"):
   obj="RECO"
@@ -70,11 +71,20 @@ for line in open('dasOutput.txt'):
 
 if(found_file==""):
   print("Could not find event with run {}, lumi {} in {} dataset".format(want_run, want_lumi, year))
+  exit()
 else:
   print("Found {} event with run {}, lumi {} in file: {}".format(year, want_run, want_lumi, found_file))
 
 print("Now making RUCLU_AOD")
 os.system("./makeRUCLU.sh {} {} {} {} {}".format(found_file, obj, want_run, want_lumi, want_id))
-os.system("mv outflat.root RucluAODs/{}_{}_{}_{}.root".format(year, want_run, want_lumi, want_id))
+#os.system("mv outflat.root RucluAODs/{}_{}_{}_{}.root".format(year, want_run, want_lumi, want_id))
+if(eoff == "eta"):
+  os.system("mv outflat.root RucluAODs/eta/{}_{}_{}_{}.root".format(year, want_run, want_lumi, want_id))
+elif(eoff == "offEta"):
+  os.system("mv outflat.root RucluAODs/offEta/{}_{}_{}_{}.root".format(year, want_run, want_lumi, want_id))
+elif(eoff == "belowEta"):
+  os.system("mv outflat.root RucluAODs/belowEta/{}_{}_{}_{}.root".format(year, want_run, want_lumi, want_id))
+elif(eoff == "aboveEta"):
+  os.system("mv outflat.root RucluAODs/aboveEta/{}_{}_{}_{}.root".format(year, want_run, want_lumi, want_id))
 
 

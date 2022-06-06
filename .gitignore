@@ -4,6 +4,8 @@
 *.pyc
 *.root
 *.swp
+*.png
+*.txt
 DijetRoot_reeAnalyzer/inputs/Interpolations/*
 DijetRootTreeAnalyzer/python/runInterpo/Call*
 DijetRootTreeAnalyzer/python/runInterpo/single*

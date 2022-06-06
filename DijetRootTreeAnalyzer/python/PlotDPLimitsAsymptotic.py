@@ -158,8 +158,7 @@ for alpha in alphas:
       T.GetEntry(4)
       p2.append(T.limit)
 
-  #LimitPlot = TH2F("LP", ";Four-Photon Resonance Mass (GeV);(pp #rightarrow X #rightarrow #phi#phi #rightarrow (#gamma#gamma)(#gamma#gamma)) #sigma #times B (fb)", 100, 300, 3000, 100, 0.005, 50.)
-  LimitPlot = TH2F("LP", ";Four-Photon Resonance Mass (GeV);(pp #rightarrow X #rightarrow #phi#phi #rightarrow (#gamma#gamma)(#gamma#gamma)) #sigma #times B (fb)", 100, 300, 2000, 100, 0.5, 50.)
+  LimitPlot = TH2F("LP", ";Four-Photon Resonance Mass (GeV);(pp #rightarrow X #rightarrow #phi#phi #rightarrow (#gamma#gamma)(#gamma#gamma)) #sigma #times B (fb)", 100, 300, 2000, 100, 0.1, 50.)
   LimitPlot.SetStats(0)
 
   LimitPlot.GetXaxis().SetMoreLogLabels(ROOT.kTRUE)
