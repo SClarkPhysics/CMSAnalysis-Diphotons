@@ -602,8 +602,6 @@ if __name__ == '__main__':
     for iOpt in range(1,len(opt)):
         asimov_reduce.add(asimov.reduce(opt[iOpt]))
         dataHist_reduce.add(dataHist.reduce(opt[iOpt]))
-
-
         
     rss = 0
     for i in range(0,len(x)-1):
@@ -710,7 +708,6 @@ if __name__ == '__main__':
         effGraph.SetMarkerColor(rt.kBlack)
         effGraph.SetLineColor(rt.kBlack)
         effGraph.Draw('pezsame')
-
     
         effTF1 = w.function('effFunc').asTF(rt.RooArgList(w.var('mjj')))
         if options.doTriggerFit or options.doSimultaneousFit:
@@ -723,8 +720,7 @@ if __name__ == '__main__':
             h.SetLineWidth(2)
             h.Draw("histsame")
         effGraph.Draw('pezsame')
-        
-    
+
         l = rt.TLatex()
         l.SetTextAlign(11)
         l.SetTextSize(0.045)
@@ -754,7 +750,7 @@ if __name__ == '__main__':
         leg.SetFillStyle(0)
         leg.SetLineWidth(0)
         leg.SetLineColor(rt.kWhite)
-        leg.AddEntry(effGraph,"Data","pe")
+        leg.AddEntry(effGraph,"Data","pe") #Not called
         leg.AddEntry(effTF1,"Fit","l")
         leg.Draw()
         
@@ -874,6 +870,7 @@ if __name__ == '__main__':
     g_data.SetLineColor(rt.kBlack)
     g_data_clone = g_data.Clone('g_data_clone')
     g_data_clone.SetMarkerSize(0)
+
     
     #myRebinnedTH1.SetLineColor(rt.kWhite)
     #myRebinnedTH1.SetMarkerSize(0)
@@ -890,7 +887,7 @@ if __name__ == '__main__':
     #pad_1.SetPad(0.01,0.36,0.99,0.98)
     #paper 
     pad_1.SetPad(0.01,0.37,0.99,0.98)
-    pad_1.SetLogy()
+   # pad_1.SetLogy()
     if 'PF' in box or w.var('mjj').getMax() > 526:
         pad_1.SetLogx(1)
     pad_1.SetRightMargin(0.05)
@@ -937,8 +934,10 @@ if __name__ == '__main__':
     myRebinnedDensityTH1.SetLineColor(rt.kWhite)
     myRebinnedDensityTH1.SetMarkerColor(rt.kWhite)
     myRebinnedDensityTH1.SetLineWidth(0)    
+    #Plot mins and maxes
     myRebinnedDensityTH1.SetMaximum(8e-2)#20
-    myRebinnedDensityTH1.SetMinimum(5e-6)#2e-8
+    #myRebinnedDensityTH1.SetMinimum(5e-6)#2e-8
+    myRebinnedDensityTH1.SetMinimum(2e-7)#2e-8
     myRebinnedDensityTH1.Draw("axis")
     
     if options.doTriggerFit or options.doSimultaneousFit or options.doSpectrumFit or options.noFit:
