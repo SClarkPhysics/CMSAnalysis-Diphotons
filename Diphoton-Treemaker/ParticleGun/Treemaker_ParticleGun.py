@@ -23,7 +23,7 @@ def Treemaker(folder, Dataset, isData):
   oF = TFile(Name+".root", "recreate")
   oF.Write()
   oF.Close()
-  tree = "flattener/tree"
+  tree = "flattenerImg/tree"
   Chain = TChain(tree)
   fcount = 0
   for path, subdirs, files in os.walk(folder):

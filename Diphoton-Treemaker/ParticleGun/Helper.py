@@ -4,7 +4,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__)) #Get directory where this
 
 keeplist = ['lumiSec','run','id', 
             "weight",
-            "pvtx_size",
+            #"pvtx_size",
             #"HLT_DoublePhoton", "HLT_EleTrig",
             "clu1_pt",
             "clu1_eta",

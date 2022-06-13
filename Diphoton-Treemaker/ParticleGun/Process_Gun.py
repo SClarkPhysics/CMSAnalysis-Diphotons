@@ -7,8 +7,8 @@ import Treemaker_ParticleGun
 #import ProcessPileup
 #import CopyPileup
 
-#GunList = ["aGun_flat2"]
-GunList = ["aGun_flat3"]
+GunList = ["aGun_flat2"]
+#GunList = ["aGun_flat3"]
 
 for sig in GunList:
   Treemaker_ParticleGun.Treemaker("/cms/sclark-2/RUCLU_Outputs/ParticleGun/{}/".format(sig), sig, False)
