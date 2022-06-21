@@ -12,7 +12,8 @@ import Helper
 dir_path = os.path.dirname(os.path.realpath(__file__)) #Get directory where this Treemaker.py is located
 gInterpreter.Declare('#include "{}/RDF_Functions.h"'.format(dir_path))
 
-saveTreeFolder = "/cms/sclark-2/DiPhotonsTrees/ParticleGun/" 
+#saveTreeFolder = "/cms/sclark-2/DiPhotonsTrees/ParticleGun/" 
+saveTreeFolder = "/cms/sclark-2/DiPhotonsTrees/QCD/" 
 
 #ROOT.ROOT.EnableImplicitMT()
 RDF = ROOT.ROOT.RDataFrame
@@ -23,7 +24,8 @@ def Treemaker(folder, Dataset, isData):
   oF = TFile(Name+".root", "recreate")
   oF.Write()
   oF.Close()
-  tree = "flattenerImg/tree"
+  #tree = "flattenerImg/tree"
+  tree = "flattener/tree"
   Chain = TChain(tree)
   fcount = 0
   for path, subdirs, files in os.walk(folder):
